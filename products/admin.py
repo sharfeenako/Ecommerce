@@ -13,6 +13,14 @@ class CategoryAdmin(admin.ModelAdmin):
 class SubCategoryAdmin(admin.ModelAdmin):
     list_display = ("category",)
 
+
+class ProductInline(admin.TabularInline):
+    model = ProductImage
+    extra = 1
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    inlines = [ProductInline]
     list_display = ("name",)
+    exclude = ["slug"]
+

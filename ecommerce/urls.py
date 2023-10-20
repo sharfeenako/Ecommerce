@@ -10,7 +10,8 @@ urlpatterns = (
         path("main/", include("main.urls", namespace="main")),
         path("", include("products.urls", namespace="products")),
         path("orders/", include("orders.urls", namespace="orders")),
-        
+        path('tinymce/', include('tinymce.urls')),
+  
     ]
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

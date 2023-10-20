@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Title Of Site -->
+    <title>Hema - Multipurpose eCommerce Bootstrap 5 Html Template</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static "assets/images/favicon.png" %}" />
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static "assets/css/plugins.css" %}">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{% static "assets/css/style-min.css" %}">
+    <link rel="stylesheet" href="{% static "assets/css/responsive.css" %}">
+</head>
+
+<body class="template-index index-demo1">
+
+
+
+    {% include 'products/partials/header.html' %}
+    {% block content %}
+    {% endblock content %}
+    {% include 'products/partials/footer.html' %}
+
+    <!-- Including Jquery/Javascript -->
+    <!-- Plugins JS -->
+    <script src="{% static "assets/js/plugins.js" %}"></script>
+    <!-- Main JS -->
+    <script src="{% static "assets/js/main.js" %}"></script>
+    <!--Newsletter Modal Cookies-->
+    <script>
+        $(window).ready(function () {
+            setTimeout(function () {
+                $('#newsletter_modal').modal("show");
+            }, 7000);
+        });
+    </script>
+    <!--End Newsletter Modal Cookies-->
+
+    </div>
+    <!--End Page Wrapper-->
+</body>
+
+</html>

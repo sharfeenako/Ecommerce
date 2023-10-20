@@ -1,21 +1,29 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from . models import *
-
-# Create your views here.
-class Index(ListView):
-    model = Category
-    template_name = "web/index.html"
+from django.views.generic import TemplateView
+from .models import SubCategory, Product, Category
 
 
-class Category(ListView):
-    model = Category
+class IndexListView(ListView):
+    model = Product
+    template_name = "products/index.html"
+    context_object_name = 'products' 
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        context['subcategories'] = SubCategory.objects.all()
+        return context
+
+
+class CategoryView(TemplateView):
     template_name = "products/categorie_list.html"
 
-class SubCategory(ListView):
-    model = SubCategory
+
+class SubCategoryView(TemplateView):
     template_name = "products/subcategorie_list.html"  
 
-class Product(ListView):
+
+class ProductList(ListView):
     model = Product
     template_name = "products/products_list.html"      
